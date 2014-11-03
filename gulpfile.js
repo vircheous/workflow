@@ -63,3 +63,8 @@ gulp.task('js', function () {
         .pipe(gulp.dest(jsDestination)
     )
 });
+
+
+// Default Task
+
+gulp.task('default',['coffee', 'js', 'compass']);
