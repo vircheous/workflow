@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     coffee = require('gulp-coffee'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    browserify = require('gulp-browserify');
 
 // CoffeeScript to JavaScript task
 
@@ -34,6 +35,7 @@ gulp.task('js', function () {
     // 3. Send it to a destination
     gulp.src(jsSources)
         .pipe(concat('script.js'))
+        .pipe(browserify())
         .pipe(gulp.dest(jsDestination)
     )
 });
