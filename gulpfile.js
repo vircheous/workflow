@@ -80,12 +80,33 @@ gulp.task('connect', function(){
 
 // Watch Task
 gulp.task('watch', function(){
-    gulp.watch(coffeeSources,['coffee','connect']);
+    gulp.watch(coffeeSources,['coffee']);
     gulp.watch(jsSources,['js']);
     gulp.watch('components/sass/*.scss',['compass']);
+    gulp.watch(htmlSources,['html']);
+    gulp.watch(jsonSources,['json']);
 
+});
+
+
+// Data Watch
+
+var jsonSources = ['builds/development/js/*.json'];
+
+gulp.task('json',function(){
+    gulp.src(jsonSources)
+        .pipe(connect.reload())
+});
+
+
+// HTML Watch Task
+var htmlSources = ['builds/development/*.html'];
+
+gulp.task('html',function(){
+    gulp.src(htmlSources)
+        .pipe(connect.reload())
 });
 
 // Default Task
 
-gulp.task('default',['coffee', 'js', 'compass', 'connect','watch']);
+gulp.task('default',['json','html','coffee', 'js', 'compass', 'connect','watch']);
