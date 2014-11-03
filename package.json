@@ -7,5 +7,9 @@
     "type": "git",
     "url": "?.git"
   },
-  "author": "Sinna"
+  "author": "Sinna",
+  "devDependencies": {
+    "gulp": "^3.8.9",
+    "gulp-util": "^3.0.1"
+  }
 }
